@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />    
+    <style></style>
+
+    <script src="main.js"></script>
+  </head>
+
+  <body>
+    <div id="header" class="header">
+      <h2>Гулямов Тимур</h2>
+    </div>
+
+    <div id="main-container">
+      <div id="result">Все сломалось</div>
+
+      <div id="inputs-container">
+        <div>
+          <b>Выберите X</b><br />
+          <select id="x-input">
+            <option value="-3">-3</option>
+            <option value="-2">-2</option>
+            <option value="-1">-1</option>
+            <option selected value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div>
+          <b>Выберите Y</b><br />
+          <input id="y-input" type="text" />
+        </div>
+
+        <div>
+          <b>Выберите R</b><br />
+          <label><input id="r-input-1_0" type="checkbox" /> 1.0 </label>
+          <label><input id="r-input-1_5" type="checkbox" /> 1.5 </label>
+          <label><input id="r-input-2_0" type="checkbox" /> 2.0 </label>
+          <label><input id="r-input-2_5" type="checkbox" /> 2.5 </label>
+          <label><input id="r-input-3_0" type="checkbox" /> 3.0 </label>
+        </div>
+      </div>
+
+      <div>
+        <button id="check-butoon">Проверить попадание в область</button>
+      </div>
+    </div>
+  </body>
+</html>

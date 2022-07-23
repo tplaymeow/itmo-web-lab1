@@ -1,0 +1,12 @@
+{
+    "name": "tplaymeow/backend",
+    "authors": [
+        {
+            "name": "Timur Guliamov",
+            "email": "t-guliamov@yandex-team.ru"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "9"
+    }
+}
