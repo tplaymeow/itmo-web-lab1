@@ -13,7 +13,7 @@ final class CheckerTest extends TestCase {
 
         $coordinates = new Coordinates(2, 2.1, 3.0);
         $result = Checker::check($coordinates);
-        $this->assertEquals($result, true);
+        $this->assertEquals($result, false);
 
         $coordinates = new Coordinates(5, 0.1, 1.0);
         $result = Checker::check($coordinates);

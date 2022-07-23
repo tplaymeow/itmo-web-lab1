@@ -22,4 +22,4 @@ jobs:
       run: composer install
 
     - name: Unit Tests
-      run: ./vendor/bin/phpunit Tests
+      run: ./vendor/bin/phpunit --testdox Tests
