@@ -8,5 +8,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: cd backend
     - uses: php-actions/composer@v5
     - uses: php-actions/phpunit@v3
