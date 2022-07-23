@@ -3,11 +3,18 @@ name: Backend Test
 on: [push]
 
 jobs:
-  build-test:
+  backend-test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
 
     steps:
-    - uses: actions/checkout@v2
-    - run: cd backend
-    - uses: php-actions/composer@v5
-    - uses: php-actions/phpunit@v3
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Composer
+      uses: php-actions/composer@v5
+
+    - name: Unit Tests
+      uses: php-actions/phpunit@v3
