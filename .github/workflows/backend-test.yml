@@ -16,8 +16,11 @@ jobs:
     - name: Dir
       run: pwd
 
-    - name: Setup Composer
-      uses: php-actions/composer@v5
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+
+    - name: Install dependencies
+      run: composer install
 
     - name: Unit Tests
       uses: php-actions/phpunit@v3
