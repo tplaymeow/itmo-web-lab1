@@ -276,7 +276,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"checkCoodinates\": () => (/* binding */ checkCoodinates)\n/* harmony export */ });\nconst superagent = __webpack_require__(/*! superagent */ \"./node_modules/superagent/lib/client.js\");\n\nasync function checkCoodinates(coordinates) {\n    try {\n        const res = await superagent.post('../../backend/index.php').send(coordinates)\n        return res.body\n    }\n    catch(err) {\n        const errorObj = JSON.parse(err.response.text)\n        throw errorObj.error ?? \"Неизвестная ошибка\"\n    }\n}\n\n//# sourceURL=webpack://frontend/./src/Networking.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"checkCoodinates\": () => (/* binding */ checkCoodinates)\n/* harmony export */ });\nconst superagent = __webpack_require__(/*! superagent */ \"./node_modules/superagent/lib/client.js\");\n\nasync function checkCoodinates(coordinates) {\n    try {\n        const res = await superagent.post(\"../../backend/index.php\").send(coordinates)\n        return res.body\n    }\n    catch(err) {\n        const errorObj = JSON.parse(err.response.text)\n        throw errorObj.error ?? \"Неизвестная ошибка\"\n    }\n}\n\n//# sourceURL=webpack://frontend/./src/Networking.js?");
 
 /***/ }),
 

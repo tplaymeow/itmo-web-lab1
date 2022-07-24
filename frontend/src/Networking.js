@@ -2,7 +2,7 @@ const superagent = require('superagent');
 
 export async function checkCoodinates(coordinates) {
     try {
-        const res = await superagent.post('../../backend/index.php').send(coordinates)
+        const res = await superagent.post(process.env.API).send(coordinates)
         return res.body
     }
     catch(err) {
