@@ -10,6 +10,7 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
+      background-attachment: fixed;
       background-image:
         radial-gradient(at top left, #F0ACE0, transparent),
         radial-gradient(at top right, #FFA4B2, transparent),
@@ -48,6 +49,15 @@
 
     div.result-container > div {
       padding-left: 25px;
+    }
+
+    div.results-container>table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    div.results-container>table td {
+      text-align: center;
     }
     </style>
 
@@ -101,12 +111,23 @@
           <label><input id="r-input-2_5" type="checkbox" /> 2.5 </label>
           <label><input id="r-input-3_0" type="checkbox" /> 3.0 </label>
         </div>
+
+        <br>
+
+        <div class="subtrate">
+          <button id="check-butoon">Проверить</button>
+        </div>  
       </div>
 
       <br>
 
-      <div class="check-butoon-container subtrate">
-        <button id="check-butoon">Проверить</button>
+      <div class="results-container subtrate">
+        <table>
+          <tr><th>X</th><th>Y</th><th>R</th><th>Результат</th></tr>
+          <tr><td>1</td><td>2</td><td>3</td><td>Попадание</td></tr>
+          <tr><td>1</td><td>2</td><td>3</td><td>Промах</td></tr>
+          <tr><td>1</td><td>2</td><td>3</td><td>Промах</td></tr>
+        </table>  
       </div>
     </div>
   </body>
