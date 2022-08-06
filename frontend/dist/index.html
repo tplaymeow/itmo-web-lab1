@@ -2,7 +2,54 @@
 <html>
   <head>
     <meta charset="utf-8" />    
-    <style></style>
+
+    <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-image:
+        radial-gradient(at top left, #F0ACE0, transparent),
+        radial-gradient(at top right, #FFA4B2, transparent),
+        radial-gradient(at bottom left, #A7D3F2, transparent);
+    }
+
+    div#header {
+      font-family: monospace;
+      color: blueviolet;
+      font-size: 15px;
+    }
+
+    div#main-container {
+      max-width: max-content;
+      margin: auto;
+    }
+
+    div.subtrate {
+      background: #FFFFFF28;
+      box-shadow: 0 8px 32px 0 #FFA4B220;
+      backdrop-filter: blur( 4.5px );
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    div.outlined {
+      border: 1px solid #FFFFFF30;
+    }
+
+    img.cat-image {
+      position: relative;
+      z-index: 100;
+      width: 200px;
+      margin-bottom: -57px;
+    }
+
+    div.result-container > div {
+      padding-left: 25px;
+    }
+    </style>
 
     <script src="main.js"></script>
   </head>
@@ -13,10 +60,16 @@
     </div>
 
     <div id="main-container">
-      <div id="result">Все сломалось</div>
+      <img src="img/cat.png" class="cat-image" />
 
-      <div id="inputs-container">
-        <div>
+      <div class="result-container subtrate">
+        <div id="result">Нажмите на "Проверить"</div>
+      </div>
+
+      <br>
+
+      <div class="inputs-container subtrate">
+        <div class="subtrate outlined">
           <b>Выберите X</b><br />
           <select id="x-input">
             <option value="-3">-3</option>
@@ -31,12 +84,16 @@
           </select>
         </div>
 
-        <div>
+        <br>
+
+        <div class="subtrate outlined">
           <b>Выберите Y</b><br />
           <input id="y-input" type="text" />
         </div>
 
-        <div>
+        <br>
+
+        <div class="subtrate outlined">
           <b>Выберите R</b><br />
           <label><input id="r-input-1_0" type="checkbox" /> 1.0 </label>
           <label><input id="r-input-1_5" type="checkbox" /> 1.5 </label>
@@ -46,8 +103,10 @@
         </div>
       </div>
 
-      <div>
-        <button id="check-butoon">Проверить попадание в область</button>
+      <br>
+
+      <div class="check-butoon-container subtrate">
+        <button id="check-butoon">Проверить</button>
       </div>
     </div>
   </body>
