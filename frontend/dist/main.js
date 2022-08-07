@@ -258,6 +258,17 @@ eval("\n\nfunction _createForOfIteratorHelper(o, allowArrayLike) { var it = type
 
 /***/ }),
 
+/***/ "./src/Drawer.js":
+/*!***********************!*\
+  !*** ./src/Drawer.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"updateResult\": () => (/* binding */ updateResult),\n/* harmony export */   \"updateResults\": () => (/* binding */ updateResults)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction updateResult(message) {\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#result\").text(message)\n}\n\nfunction updateResults(items) {\n    if (items === null || items.length == 0) {\n        jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#results-container\").parent().hide()\n        return\n    }\n\n    const headerHTML = \"<th>X</th><th>Y</th><th>R</th><th>Результат</th>\"\n    const dataHTML = items.map(item => {\n        return `<td>${ item.x }</td>\n                <td>${ item.y }</td>\n                <td>${ item.r }</td>\n                <td>${ item.result ? \"Попадание\" : \"Промах\" }</td>`\n    })\n\n    const table = document.createElement(\"table\")\n\n    const headerRow = document.createElement(\"tr\")\n    headerRow.innerHTML = headerHTML\n    table.appendChild(headerRow)\n\n    dataHTML.forEach(element => {\n        const row = document.createElement(\"tr\")\n        row.innerHTML = element\n        table.appendChild(row)\n    })\n\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#results-container\")\n        .html(table.outerHTML)\n        .parent()\n        .show()\n}\n\n\n//# sourceURL=webpack://frontend/./src/Drawer.js?");
+
+/***/ }),
+
 /***/ "./src/Extractor.js":
 /*!**************************!*\
   !*** ./src/Extractor.js ***!
@@ -291,6 +302,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/Store.js":
+/*!**********************!*\
+  !*** ./src/Store.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"clear\": () => (/* binding */ clear),\n/* harmony export */   \"readAll\": () => (/* binding */ readAll),\n/* harmony export */   \"save\": () => (/* binding */ save)\n/* harmony export */ });\n\nconst localStorageResultsKey = \"coordinates_results_2\"\n\nfunction save(item) {\n    const array = readAll() ?? []\n    const extendedArray = array.concat([item])\n    const newString = JSON.stringify(extendedArray)\n    localStorage.setItem(localStorageResultsKey, newString)\n}\n\nfunction readAll() {\n    const string = localStorage.getItem(localStorageResultsKey)\n    return JSON.parse(string)\n}\n\nfunction clear() {\n    localStorage.clear()\n}\n\n\n//# sourceURL=webpack://frontend/./src/Store.js?");
+
+/***/ }),
+
+/***/ "./src/Validator.js":
+/*!**************************!*\
+  !*** ./src/Validator.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"validateY\": () => (/* binding */ validateY)\n/* harmony export */ });\n\nfunction validateY(value) {\n    return -5 <= value && value  <= 3\n}\n\n\n//# sourceURL=webpack://frontend/./src/Validator.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -298,7 +331,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Extractor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Extractor */ \"./src/Extractor.js\");\n/* harmony import */ var _Networking__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Networking */ \"./src/Networking.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\njquery__WEBPACK_IMPORTED_MODULE_2___default()(document).ready(function(){    \n    jquery__WEBPACK_IMPORTED_MODULE_2___default()(\"#check-butoon\").click(function (e) { \n        onCheckClicked()\n    });\n});\n\nfunction onCheckClicked() {\n    const x = _Extractor__WEBPACK_IMPORTED_MODULE_0__.extractX();\n    const y = _Extractor__WEBPACK_IMPORTED_MODULE_0__.extractY();\n    const r = _Extractor__WEBPACK_IMPORTED_MODULE_0__.extractR();\n\n    if (x == null || y == null || r == null) {\n        console.log(x, y, r)\n        return\n    }\n\n    const coordinatesModels = r.map(r => {\n        return { x: x, y: y, r: r }\n    })\n\n    _Networking__WEBPACK_IMPORTED_MODULE_1__.checkCoodinates(coordinatesModels[0]).then(\n        res => {\n            console.log(res)\n        },\n        err => {\n            console.log(err)\n        }\n    )\n}\n\n//# sourceURL=webpack://frontend/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Extractor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Extractor */ \"./src/Extractor.js\");\n/* harmony import */ var _Validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Validator */ \"./src/Validator.js\");\n/* harmony import */ var _Drawer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Drawer */ \"./src/Drawer.js\");\n/* harmony import */ var _Store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Store */ \"./src/Store.js\");\n/* harmony import */ var _Networking__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Networking */ \"./src/Networking.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_5__);\n\n\n\n\n\n\n\njquery__WEBPACK_IMPORTED_MODULE_5___default()(function() {\n    _Drawer__WEBPACK_IMPORTED_MODULE_2__.updateResults(_Store__WEBPACK_IMPORTED_MODULE_3__.readAll())\n\n    jquery__WEBPACK_IMPORTED_MODULE_5___default()(\"#check-button\").on(\"click\", function (e) {\n        onCheckClicked()\n    })\n\n    jquery__WEBPACK_IMPORTED_MODULE_5___default()(\"#clear-button\").on(\"click\", function (e) {\n        _Store__WEBPACK_IMPORTED_MODULE_3__.clear()\n        _Drawer__WEBPACK_IMPORTED_MODULE_2__.updateResults(_Store__WEBPACK_IMPORTED_MODULE_3__.readAll())\n    })\n})\n\nfunction onCheckClicked() {\n    const x = _Extractor__WEBPACK_IMPORTED_MODULE_0__.extractX();\n    const y = _Extractor__WEBPACK_IMPORTED_MODULE_0__.extractY();\n    const r = _Extractor__WEBPACK_IMPORTED_MODULE_0__.extractR();\n\n    if (x == null || y == null || r == null || !_Validator__WEBPACK_IMPORTED_MODULE_1__.validateY(y)) {\n        var message = \"Неверное значение для полей:\"\n        if (x == null) { message += \" X\" }\n        if (y == null || !_Validator__WEBPACK_IMPORTED_MODULE_1__.validateY(y)) { message += \" Y\" }\n        if (r == null) { message += \" R\" }\n        _Drawer__WEBPACK_IMPORTED_MODULE_2__.updateResult(message)\n        return\n    }\n\n    const coordinatesModels = r.map(r => {\n        return { x: x, y: y, r: r }\n    })\n\n    _Networking__WEBPACK_IMPORTED_MODULE_4__.checkCoodinates(coordinatesModels[0]).then(\n        res => {\n            _Store__WEBPACK_IMPORTED_MODULE_3__.save(res)\n            _Drawer__WEBPACK_IMPORTED_MODULE_2__.updateResults(_Store__WEBPACK_IMPORTED_MODULE_3__.readAll())\n            console.log(res)\n        },\n        err => {\n            _Drawer__WEBPACK_IMPORTED_MODULE_2__.updateResult(err)\n        }\n    )\n}\n\n//# sourceURL=webpack://frontend/./src/index.js?");
 
 /***/ }),
 

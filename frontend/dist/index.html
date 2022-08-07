@@ -28,7 +28,7 @@
       margin: auto;
     }
 
-    div.subtrate {
+    div.glass-panel {
       background: #FFFFFF28;
       box-shadow: 0 8px 32px 0 #FFA4B220;
       backdrop-filter: blur( 4.5px );
@@ -40,6 +40,23 @@
       border: 1px solid #FFFFFF30;
     }
 
+    button.glass-button {
+      background: #FFFFFF28;
+      border: 1px solid #FFFFFF30;
+      box-shadow: 0 8px 32px 0 #FFA4B220;
+      backdrop-filter: blur( 4.5px );
+      border-radius: 20px;
+      padding: 20px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button.glass-button:hover {
+      background: #FFFFFF44;
+      box-shadow: 0 8px 55px 0 #FFA4B260;
+    }
+
     img.cat-image {
       position: relative;
       z-index: 100;
@@ -48,15 +65,15 @@
     }
 
     div.result-container > div {
-      padding-left: 25px;
+      padding-left: 20px;
     }
 
-    div.results-container>table {
+    div#results-container>table {
       border-collapse: collapse;
       width: 100%;
     }
 
-    div.results-container>table td {
+    div#results-container>table td {
       text-align: center;
     }
     </style>
@@ -72,14 +89,14 @@
     <div id="main-container">
       <img src="img/cat.png" class="cat-image" />
 
-      <div class="result-container subtrate">
+      <div class="result-container glass-panel">
         <div id="result">Нажмите на "Проверить"</div>
       </div>
 
       <br>
 
-      <div class="inputs-container subtrate">
-        <div class="subtrate outlined">
+      <div class="inputs-container glass-panel">
+        <div class="glass-panel outlined">
           <b>Выберите X</b><br />
           <select id="x-input">
             <option value="-3">-3</option>
@@ -96,14 +113,14 @@
 
         <br>
 
-        <div class="subtrate outlined">
+        <div class="glass-panel outlined">
           <b>Выберите Y</b><br />
           <input id="y-input" type="text" />
         </div>
 
         <br>
 
-        <div class="subtrate outlined">
+        <div class="glass-panel outlined">
           <b>Выберите R</b><br />
           <label><input id="r-input-1_0" type="checkbox" /> 1.0 </label>
           <label><input id="r-input-1_5" type="checkbox" /> 1.5 </label>
@@ -114,21 +131,20 @@
 
         <br>
 
-        <div class="subtrate">
-          <button id="check-butoon">Проверить</button>
-        </div>  
+        <button id="check-button" class="glass-button">Проверить</button>
       </div>
 
       <br>
 
-      <div class="results-container subtrate">
-        <table>
-          <tr><th>X</th><th>Y</th><th>R</th><th>Результат</th></tr>
-          <tr><td>1</td><td>2</td><td>3</td><td>Попадание</td></tr>
-          <tr><td>1</td><td>2</td><td>3</td><td>Промах</td></tr>
-          <tr><td>1</td><td>2</td><td>3</td><td>Промах</td></tr>
-        </table>  
+      <div class="glass-panel">
+        <div id="results-container" class="glass-panel outlined"></div>
+
+        <br>
+
+        <button id="clear-button" class="glass-button">Очистить</button>
       </div>
+
+      <br>
     </div>
   </body>
 </html>
